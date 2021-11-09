@@ -1,0 +1,372 @@
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+html {
+  font-size: 62.5%;
+}
+:root {
+  /* colors */
+  --clr-teal: 177 68% 64%;
+  --clr-lightRed: 12 94% 65%;
+  --clr-orange: 33 100% 70%;
+  --clr-white: 20 33% 98%;
+  --clr-black: 244 23% 12%;
+
+  /* font-sizes */
+  /* --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem); */
+  --fs-900: 6.5rem;
+  --fs-800: 4rem;
+  --fs-700: 3.2rem;
+  --fs-600: 2rem;
+  --fs-500: 1.8rem;
+  --fs-500: 1.6rem;
+
+  /* font-families */
+  --ff-sans: "IBM Plex Sans", sans-serif;
+}
+
+@media (min-width: 35em) {
+  :root {
+    --fs-900: 8.8rem;
+    --fs-800: 4rem;
+    --fs-700: 2rem;
+    --fs-600: 1.8rem;
+    --fs-500: 1.6rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-900: 8.8rem;
+    --fs-800: 4rem;
+    --fs-700: 2rem;
+    --fs-600: 1.8rem;
+    --fs-500: 1.6rem;
+  }
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+/* set up the body */
+body {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-500);
+  min-height: 100vh;
+}
+/* make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* general */
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.d-block {
+  display: block;
+}
+
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.flow--space-small {
+  --flow-space: 0.75rem;
+}
+
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+}
+
+/* colors */
+
+.bg-teal {
+  background-color: hsl(var(--clr-teal));
+}
+.bg-red {
+  background-color: hsl(var(--clr-lightRed));
+}
+
+.bg-orange {
+  background-color: hsl(var(--clr-orange));
+}
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+.bg-dark {
+  background-color: hsl(var(--clr-black));
+}
+
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+.text-accent {
+  color: hsl(var(--clr-black) / 0.5);
+}
+.text-white {
+  color: hsl(var(--clr-white));
+}
+
+/* typography */
+
+.ff-sans {
+  font-family: var(--ff-sans);
+}
+
+.letter-spacing-1 {
+  letter-spacing: -1px;
+}
+
+.letter-spacing-2 {
+  letter-spacing: -0.45px;
+}
+
+.letter-spacing-3 {
+  letter-spacing: -0.18px;
+}
+
+.fs-900 {
+  font-size: var(--fs-900);
+}
+.fs-800 {
+  font-size: var(--fs-800);
+}
+.fs-700 {
+  font-size: var(--fs-700);
+}
+.fs-600 {
+  font-size: var(--fs-600);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-200 {
+  font-size: var(--fs-200);
+}
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600,
+.fs-500 {
+  line-height: 1.1;
+}
+
+/* header */
+
+.bg-main-mobile {
+  background-image: url("starter-code/assets/bg-main-mobile.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header__logo {
+  position: relative;
+  padding-top: 4rem;
+  padding-left: 2.4rem;
+  padding-bottom: 6.4rem;
+}
+
+.header__bg-img {
+  position: absolute;
+  top: -23%;
+  right: -50%;
+  left: 0;
+  bottom: 0;
+}
+
+.header__box {
+  padding: 0 2.4rem;
+}
+
+.header__primary {
+  line-height: 48px;
+  margin-bottom: 2rem;
+}
+
+.header__info {
+  line-height: 26px;
+  margin-bottom: 10rem;
+}
+
+/* features */
+.feature-section {
+  margin-top: 6.8rem;
+  min-height: 102.4rem;
+}
+
+.features {
+  /* min-height: 55rem; */
+  border-radius: 12px;
+  position: relative;
+}
+
+.bg-pattern-2 {
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  max-width: 100%;
+  background-size: 50% / 50%;
+  padding: 0 4.8rem 18rem 4.8rem;
+}
+
+.illustration-img {
+  position: absolute;
+  max-width: 58%;
+  top: -18%;
+  left: 3%;
+  transform: translateX(30%);
+  padding-top: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: 50% / 50%; */
+}
+
+.features__box {
+  position: absolute;
+  width: 100%;
+  min-height: 54.6rem;
+  bottom: -55%;
+  border-radius: 12px;
+}
+
+.features__content {
+  padding: 4.8rem 3.6rem;
+}
+
+.features__heading {
+  margin-bottom: 1.2rem;
+  line-height: 40px;
+}
+
+.features__info {
+  line-height: 28px;
+  font-weight: 400;
+  margin-bottom: 3.6rem;
+}
+
+.features__price {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+.features__price > span:last-child {
+  padding-left: 1rem;
+  font-weight: normal;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--ff-sans);
+  font-weight: 700;
+  width: 33.3rem;
+  height: 6.1rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
