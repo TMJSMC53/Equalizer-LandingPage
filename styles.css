@@ -86,6 +86,7 @@ body {
   font-family: var(--ff-sans);
   font-size: var(--fs-500);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 /* make images easier to work with */
 img,
@@ -335,7 +336,7 @@ select {
 }
 
 .features__content {
-  padding: 4.8rem 3.6rem;
+  padding: 4.8rem 3.2rem 3.6rem;
 }
 
 .features__heading {
@@ -353,7 +354,9 @@ select {
   display: flex;
   align-items: center;
   font-weight: 700;
+  margin-bottom: 3.2rem;
 }
+
 .features__price > span:last-child {
   padding-left: 1rem;
   font-weight: normal;
@@ -361,11 +364,15 @@ select {
 
 /* Buttons */
 .btn {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: var(--ff-sans);
   font-weight: 700;
-  width: 33.3rem;
+  width: 29.6rem;
   height: 6.1rem;
+  margin-bottom: 1.2rem;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   text-align: center;
