@@ -25,27 +25,6 @@ html {
   --ff-sans: "IBM Plex Sans", sans-serif;
 }
 
-@media (min-width: 35em) {
-  :root {
-    --fs-900: 8.8rem;
-    --fs-800: 4rem;
-    --fs-700: 2rem;
-    --fs-600: 1.8rem;
-    --fs-500: 1.6rem;
-  }
-}
-
-@media (min-width: 45em) {
-  :root {
-    /* font-sizes */
-    --fs-900: 8.8rem;
-    --fs-800: 4rem;
-    --fs-700: 2rem;
-    --fs-600: 1.8rem;
-    --fs-500: 1.6rem;
-  }
-}
-
 /* ------------------- */
 /* Reset               */
 /* ------------------- */
@@ -121,6 +100,11 @@ select {
 
 /* general */
 
+.container {
+  margin: 0 auto;
+  /* max-width: 80rem; */
+}
+
 .flex {
   display: flex;
   flex-direction: column;
@@ -142,12 +126,6 @@ select {
 
 .flow--space-small {
   --flow-space: 0.75rem;
-}
-
-.container {
-  padding-inline: 2em;
-  margin-inline: auto;
-  max-width: 80rem;
 }
 
 .sr-only {
@@ -286,11 +264,23 @@ select {
 
 /* header */
 
-.bg-main-mobile {
+.bg-pattern-1 {
+  display: none;
+  /* background-image: url("starter-code/assets/bg-pattern-1.svg"); */
+  /* position: absolute; */
+  /* top: -50%; */
+}
+
+.bg-img {
   background-image: url("starter-code/assets/bg-main-mobile.png");
+  position: absolute;
+  top: -71%;
+  right: -50%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .header__logo {
@@ -298,14 +288,6 @@ select {
   padding-top: 4rem;
   padding-left: 2.4rem;
   padding-bottom: 6.4rem;
-}
-
-.header__bg-img {
-  position: absolute;
-  top: -23%;
-  right: -50%;
-  left: 0;
-  bottom: 0;
 }
 
 .header__box {
@@ -329,17 +311,17 @@ select {
 }
 
 .features {
-  /* min-height: 55rem; */
+  min-height: 55rem;
   border-radius: 12px;
   position: relative;
 }
 
 .bg-pattern-2 {
+  position: relative;
   background-repeat: no-repeat;
-  /* background-position: center; */
-  max-width: 100%;
-  background-size: 50% / 50%;
-  padding: 0 4.8rem 18rem 4.8rem;
+  max-width: 78%;
+  top: 0;
+  left: 10%;
 }
 
 .illustration-img {
@@ -355,10 +337,11 @@ select {
 }
 
 .features__box {
+  /* display: none; */
   position: absolute;
-  width: 100%;
+  /* width: 100%; */
   min-height: 54.6rem;
-  bottom: -55%;
+  bottom: -75%;
   border-radius: 12px;
 }
 
@@ -390,6 +373,9 @@ select {
 }
 
 /* footer */
+.footer__section {
+  margin-top: 4rem;
+}
 .footer {
   width: 35rem;
   padding-left: 2.4rem;
@@ -419,4 +405,58 @@ select {
 .icon:hover,
 .icon:focus {
   fill: hsl(var(--clr-lightRed));
+}
+
+@media screen and (min-width: 601px) {
+  .bg-img {
+    background-image: url("starter-code/assets/bg-main-tablet.png");
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: cover;
+    top: -38%;
+    left: -87%;
+  }
+
+  .bg-pattern-1 {
+    display: block;
+    position: absolute;
+    top: -4%;
+    right: -5%;
+    max-width: 33%;
+  }
+
+  .header__logo {
+    padding-left: 3.9rem;
+  }
+  .header__box {
+    padding: 0 3.9rem;
+  }
+
+  .header__primary {
+    font-size: 6.4rem;
+    line-height: 64px;
+    width: 520px;
+  }
+
+  .header__info {
+    font-size: 1.8rem;
+    line-height: 28px;
+    width: 514px;
+    padding-bottom: 11.1rem;
+    margin-bottom: 3rem;
+  }
+
+  .features {
+    margin: 0 3.3rem;
+  }
+
+  .illustration-img {
+    max-width: 41.5%;
+    left: -5%;
+  }
+
+  .bg-pattern-2 {
+    top: -6%;
+    right: -23%;
+  }
 }
